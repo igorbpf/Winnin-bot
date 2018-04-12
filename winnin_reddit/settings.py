@@ -147,8 +147,7 @@ CELERYBEAT_SCHEDULE = {
     'reddit_bot': {
         'task': 'bot.utilities.reddit_bot.get_posts',
         'schedule': crontab(
-            minute='35',
-            hour='21',
+            minute='*/5',
         )
     },
 }
