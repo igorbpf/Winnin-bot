@@ -45,5 +45,6 @@ def get_posts():
     for post in post_data:
         Post.objects.update_or_create(
             reddit_id=post['reddit_id'],
+            title=post['title'],
             defaults=post
             )
