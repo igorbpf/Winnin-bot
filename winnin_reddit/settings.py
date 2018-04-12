@@ -11,9 +11,10 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-# import datetime
+import datetime
 from decouple import config, Csv
 import dj_database_url
+from celery.schedules import crontab
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -41,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'bot',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +128,27 @@ STATIC_URL = '/static/'
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Celery configs
+BROKER_URL = config('BROKER_URL')
+CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND')
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_DEFAULT_QUEUE = 'default'
+CELERY_IMPORTS = (
+    'bot.utilities.reddit_bot',
+    )
+
+# List of modules to import when the Celery worker starts.
+# Time is UTC
+
+CELERYBEAT_SCHEDULE = {
+    'reddit_bot': {
+        'task': 'bot.utilities.reddit_bot.get_posts',
+        'schedule': crontab(
+            minute='15',
+            hour='20',
+        )
+    },
+}
