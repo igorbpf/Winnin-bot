@@ -35,12 +35,11 @@ def get_posts():
                 'created_at': convert_unix2date(sub.created_utc),
                 'author': sub.author.name
             }
-            print(data)
             post_data.append(data)
         except AttributeError as e:
-            print(e)
+            pass
         except Exception as e:
-            print(e)
+            pass
 
     for post in post_data:
         Post.objects.update_or_create(
