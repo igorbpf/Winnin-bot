@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import datetime
 from decouple import config, Csv
 import dj_database_url
 from celery.schedules import crontab
