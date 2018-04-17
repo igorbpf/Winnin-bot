@@ -4,6 +4,12 @@ Este projeto é resultado da primeira etapa do processo seletivo da empresa Winn
 consistiu em criar uma crawler que armazena, diariamente, os posts "hot" do subreddit Artifical. A tecnologia usada foi python 3.6, 
 django e django rest framework.
 
+# API Live Demo
+
+https://winnin-reddit.herokuapp.com/api/v1/hot/post/
+
+https://winnin-reddit.herokuapp.com/api/v1/hot/author/
+
 Para utilização deste projeto, é preciso clonar este repositorio e instalar as dependencias presentes em requirements.txt. Além 
 disso, é preciso criar um arquivo .env (não esqueça do 'ponto' na frente) no root do projeto. Este arquivo contém algumas variáveis 
 de ambiente do sistema.
