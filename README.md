@@ -63,8 +63,11 @@ comandos:
 *  **URL Query Params**
 
    **Opcional:**
+   
    `order=[string] valores: ups e num_comments para ordenar os post por ordem decrescente de up votes e num de comentários`
+   
    `start_date=[string] formato da data: YYYY-MM-DD`
+   
    `end_date=[string] formato da data: YYYY-MM-DD`
    
 * **Código de Sucesso:**
@@ -91,6 +94,7 @@ comandos:
 *  **URL Query Params**
 
    **Opcional:**
+   
    `order=[string] valores: ups e num_comments para ordenar os post por ordem decrescente de up votes e num de comentários`
    
 * **Código de Sucesso:**
